@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jim Rotz Carpentry &amp; Renovations — General Contractor, Victoria BC</title>
+  <meta name="description" content="Jim Rotz is a certified carpenter and general contractor serving Victoria and the Capital Regional District for over 30 years. Kitchens, bathrooms, basements, decks, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jimrotzcarpentry.ca/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jimrotzcarpentry.ca/" />
+  <meta property="og:title" content="Jim Rotz Carpentry &amp; Renovations — Victoria BC Contractor" />
+  <meta property="og:description" content="Certified carpenter and general contractor serving the CRD for 30+ years. Honest work, done right." />
+  <meta property="og:image" content="https://jimrotzcarpentry.ca/Photos/kitchen-white-jimrotz.jpeg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jim Rotz Carpentry &amp; Renovations — Victoria BC" />
+  <meta name="twitter:description" content="Certified carpenter and general contractor serving the CRD for 30+ years." />
+  <meta name="twitter:image" content="https://jimrotzcarpentry.ca/Photos/kitchen-white-jimrotz.jpeg" />
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Jim Rotz Carpentry and Renovations",
+    "description": "Certified carpenter and general contractor serving Victoria and the Capital Regional District for over 30 years. Specialising in kitchen renovations, bathroom renovations, basement finishing, and custom carpentry.",
+    "url": "https://jimrotzcarpentry.ca",
+    "telephone": "(250) 555-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Victoria",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Capital Regional District"
+    },
+    "knowsAbout": ["Kitchen Renovations", "Bathroom Renovations", "Basement Finishing", "Custom Carpentry", "Decks", "General Contracting"],
+    "hasCredential": "Red Seal Certified Carpenter",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0 40px;
+      color: #f5f0e8;
+    }
+    .hero .hero-sub    { color: rgba(245,240,232,0.75); }
+    .hero .hero-tag    { color: #c8a96e; border-color: rgba(245,240,232,0.18); }
+    .hero .section-eyebrow { color: #c8a96e; }
+    .hero .section-eyebrow::before { background: #c8a96e; }
+    .hero .hero-title em { color: #f5f0e8; }
+    .hero .btn-outline { color: #f5f0e8; border-color: rgba(245,240,232,0.45); }
+    .hero .btn-outline:hover { background: rgba(245,240,232,0.1); color: #f5f0e8; border-color: rgba(245,240,232,0.7); }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('Photos/kitchen-white-jimrotz.jpeg');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+    }
+
+    /* Dark overlay so text stays legible */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(26,31,46,0.94) 0%, rgba(26,31,46,0.70) 55%, rgba(26,31,46,0.50) 100%),
+        linear-gradient(to top, rgba(26,31,46,0.6) 0%, transparent 40%);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      padding: 160px 0 120px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero-left {}
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm);
+      border: 1px solid var(--rule);
+      padding: 8px 16px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--warm);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 600;
+      line-height: 1.05;
+      margin-bottom: 28px;
+      letter-spacing: 0.01em;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--warm);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      line-height: 1.75;
+      max-width: 800px;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      animation: fadeUp 1s ease forwards 1.2s;
+      opacity: 0;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--warm), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: 0.4; transform: scaleY(1); }
+      50%      { opacity: 1;   transform: scaleY(1.2); }
+    }
+
+    /* ── Services Preview ── */
+    .services-preview {
+      background: var(--slate-mid);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .service-thumb {
+      padding: 36px 28px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .service-thumb:hover {
+      background: var(--warm-dim);
+      border-color: var(--rule);
+    }
+    .service-thumb::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--warm);
+      transition: width 0.4s;
+    }
+    .service-thumb:hover::after { width: 100%; }
+
+    .service-icon {
+      width: 44px; height: 44px;
+      background: var(--warm-dim);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .service-thumb h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--cream);
+    }
+    .service-thumb p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Trust Strip (imported from trust section) ── */
+    .trust-strip {
+      background: var(--slate);
+    }
+
+    .trust-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 0;
+    }
+
+    .trust-pillar {
+      background: #fff;
+      border: 1px solid var(--rule);
+      padding: 36px 28px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .trust-pillar:hover { background: var(--warm-dim); }
+
+    .trust-pillar-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 16px;
+    }
+    .trust-pillar-icon img {
+      width: 100%;
+      height: 100%;
+    }
+    .trust-pillar-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-light);
+      margin-bottom: 10px;
+    }
+    .trust-pillar-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CTA Banner ── */
+    /* ── Recent Work ── */
+    .work-preview {
+      background: var(--slate-mid);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .work-photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      border: 1px solid var(--rule);
+      display: block;
+      aspect-ratio: 3/4;
+    }
+
+    .work-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .work-photo:hover img { transform: scale(1.05); }
+
+    .work-photo-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px 16px 16px;
+      background: linear-gradient(to top, rgba(20,23,34,0.8) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .work-photo:hover .work-photo-label { opacity: 1; }
+    .work-photo-label span {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #f5f0e8;
+    }
+    .work-photo-label em {
+      font-size: 11px;
+      color: rgba(245,240,232,0.6);
+      font-style: normal;
+    }
+
+    @media (max-width: 768px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .work-grid { grid-template-columns: 1fr 1fr; gap: 8px; } }
+
+    .cta-banner {
+      background:
+        linear-gradient(135deg, rgba(200,169,110,0.12) 0%, transparent 60%),
+        var(--slate-light);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cta-banner .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 900;
+    }
+    .cta-banner h2 em { font-style: italic; color: var(--warm); }
+    .cta-banner p {
+      font-size: 15px;
+      color: var(--cream-dim);
+      margin-top: 8px;
+      max-width: 480px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .trust-pillars { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 0 24px; }
+      .hero-actions { flex-direction: column; }
+      .trust-pillars { grid-template-columns: 1fr; }
+      .cta-banner .container { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════ NAV ════════════ -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo"><img src="LOGO.svg" alt="Jim Rotz Carpentry and Renovations" /></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="services.html">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="kitchen-renovations.html">Kitchen Renovations</a></li>
+          <li><a href="bathroom-renovations.html">Bathroom Renovations</a></li>
+          <li><a href="basement-finishing.html">Basement Finishing</a></li>
+          <li><a href="home-renovations.html">Home Renovations</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- ════════════ HERO ════════════ -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+
+        <div class="hero-left">
+          <div class="hero-tag fade-up delay-1">Jim Rotz - Carpentry and Renovations</div>
+          <h1 class="hero-title fade-up delay-2">
+            Home Renos and Carpentry <br>in <em>Victoria, BC</em>
+          </h1>
+          <p class="hero-sub fade-up delay-3">
+            Certified general contractor with 30+ years of experience. Specializing in kitchen renovations, bathroom remodels, basement finishing, and custom woodwork in the Greater Victoria area.
+          </p>
+          <div class="hero-actions fade-up delay-4">
+            <a href="contact.html" class="btn btn-primary">Let's Talk</a>
+            <a href="gallery.html" class="btn btn-outline">See Gallery</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </section>
+
+    <!-- ════════════ TRUST ════════════ -->
+    <section class="trust-strip">
+      <div class="container">
+        <p class="section-eyebrow fade-up">Decades of Expereience</p>
+        <h2 class="section-title fade-up delay-1">30+ Years.<br><em> Every Type of Home.</em></h2>
+        <p class="section-lead fade-up delay-2">Jim Rotz has been building in Victoria since the early 90s. He is a carpenter who prioritizes the quality of the build above all else, bringing decades of hands-on experience to every project. He oversees the work personally and stays on the job until the details meet his standards.</p>
+
+        <div class="trust-pillars">
+          <div class="trust-pillar fade-up delay-2">
+            <div class="trust-pillar-icon"><img src="icons/clock.svg" alt="" /></div>
+            <div class="trust-pillar-label">30+ Years in the Trade</div>
+            <div class="trust-pillar-desc">3 decades in Victoria means Jim has seen and solved just about every renovation challenge there is out there.</div>
+          </div>
+          <div class="trust-pillar fade-up delay-3">
+            <div class="trust-pillar-icon"><img src="icons/location.svg" alt="" /></div>
+            <div class="trust-pillar-label">Serving Greater Victoria</div>
+            <div class="trust-pillar-desc">From Sidney to Sooke and everywhere in between. Jim knows the specific needs of homes in the Capital Region.</div>
+          </div>
+          <div class="trust-pillar fade-up delay-4">
+            <div class="trust-pillar-icon"><img src="icons/certified.svg" alt="" /></div>
+            <div class="trust-pillar-label">Certified</div>
+            <div class="trust-pillar-desc">A certified carpenter who understands that "done right" is the only way worth doing it.</div>
+          </div>
+          <div class="trust-pillar fade-up delay-5">
+            <div class="trust-pillar-icon"><img src="icons/verified.svg" alt="" /></div>
+            <div class="trust-pillar-label">Owner Operated</div>
+            <div class="trust-pillar-desc">Jim is the lead on every job. You deal directly with the person responsible for the project, not a remote project manager.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ SERVICES PREVIEW ════════════ -->
+    <section class="services-preview">
+      <div class="container">
+        <p class="section-eyebrow fade-up">What Jim Does</p>
+        <h2 class="section-title fade-up delay-1">A bit of <em>everything.</em></h2>
+        <p class="section-lead fade-up delay-2">Kitchens, bathrooms, basements, or custom woodwork—if it’s a home renovation in Victoria, Jim’s probably done it a few dozen times.</p>
+
+        <div class="services-grid">
+          <div class="service-thumb fade-up delay-2">
+            <div class="service-icon">
+              <img src="icons/reno.svg" alt="" />
+            </div>
+            <h3>Renovations</h3>
+            <p>Kitchens, bathrooms, and basements. All handled start to finish by the same person you talked to on the phone.</p>
+          </div>
+          <div class="service-thumb fade-up delay-3">
+            <div class="service-icon">
+              <img src="icons/saw.svg" alt="" />
+            </div>
+            <h3>Custom Carpentry</h3>
+            <p>Built-ins, cabinetry, trim, staircases — things that need to be measured twice and cut once.</p>
+          </div>
+          <div class="service-thumb fade-up delay-4">
+            <div class="service-icon">
+              <img src="icons/power drill.svg" alt="" />
+            </div>
+            <h3>General Construction</h3>
+            <p>Additions, structural work, new builds — Jim's comfortable with bigger scopes too.</p>
+          </div>
+          <div class="service-thumb fade-up delay-5">
+            <div class="service-icon">
+              <img src="icons/repair.svg" alt="" />
+            </div>
+            <h3>Repairs & Maintenance</h3>
+            <p>Something broken or wearing out? Jim will tell you straight whether it's worth fixing.</p>
+          </div>
+          <div class="service-thumb fade-up delay-6">
+            <div class="service-icon">
+              <img src="icons/umbrella and chairs.svg" alt="" />
+            </div>
+            <h3>Decks & Outdoor</h3>
+            <p>Decks built to last on the West Coast — no shortcuts on materials or fasteners.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px;" class="fade-up delay-5">
+          <a href="services.html" class="btn btn-outline">See All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ RECENT WORK ════════════ -->
+    <section class="work-preview">
+      <div class="container">
+        <p class="section-eyebrow fade-up">Recent Work</p>
+        <h2 class="section-title fade-up delay-1">Built Across <em>the CRD</em></h2>
+        <div class="work-grid">
+          <a href="kitchen-renovations.html" class="work-photo fade-up delay-2">
+            <img src="Photos/kitchen-white-jimrotz.jpeg" alt="White kitchen renovation by Jim Rotz, Victoria BC" />
+            <div class="work-photo-label"><span>Kitchen Renovation</span><em>Victoria, BC</em></div>
+          </a>
+          <a href="kitchen-renovations.html" class="work-photo fade-up delay-3">
+            <img src="Photos/kitchen-jimrotz.jpeg" alt="Kitchen renovation with custom cabinetry by Jim Rotz" />
+            <div class="work-photo-label"><span>Kitchen Renovation</span><em>Victoria, BC</em></div>
+          </a>
+          <a href="home-renovations.html" class="work-photo fade-up delay-4">
+            <img src="Photos/staircase-jimrotz.jpeg" alt="Custom staircase carpentry by Jim Rotz, Victoria BC" />
+            <div class="work-photo-label"><span>Custom Staircase</span><em>Victoria, BC</em></div>
+          </a>
+          <a href="home-renovations.html" class="work-photo fade-up delay-5">
+            <img src="Photos/fireplacesurround-jimrotz.jpeg" alt="Custom fireplace surround by Jim Rotz, Victoria BC" />
+            <div class="work-photo-label"><span>Fireplace Surround</span><em>Victoria, BC</em></div>
+          </a>
+        </div>
+        <div style="margin-top: 40px;" class="fade-up delay-4">
+          <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CTA BANNER ════════════ -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="fade-up">
+          <h2>Got something <em>in mind?</em></h2>
+          <p>Drop Jim a message. He'll get back to you himself, take a look at what you're working with, and give you a straight answer on what it'll take.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary fade-up delay-2">Let's Talk</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="LOGO.svg" alt="Jim Rotz Carpentry and Renovations" /></a>
+        <p>General contractor serving Victoria and the Capital Regional District for over 30 years.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="kitchen-renovations.html">Kitchen Renovations</a></li>
+          <li><a href="bathroom-renovations.html">Bathroom Renovations</a></li>
+          <li><a href="basement-finishing.html">Basement Finishing</a></li>
+          <li><a href="home-renovations.html">Home Renovations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+12505550000">(250) 555-0000</a></li>
+          <li><a href="mailto:info@yourbusiness.ca">info@yourbusiness.ca</a></li>
+          <li><a href="#">Victoria, BC</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 [Your Business Name]. All rights reserved.</p>
+      <p>Victoria, BC · Capital Regional District</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // Simple scroll-based fade-in for elements below the fold
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animationPlayState = 'running';
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
