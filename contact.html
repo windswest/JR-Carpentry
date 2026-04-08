@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get a Quote — Jim Rotz Carpentry &amp; Renovations, Victoria BC</title>
+  <meta name="description" content="Get in touch with Jim Rotz for a renovation quote in Victoria or the CRD. Call directly or fill out the form. Kitchens, bathrooms, basements, and general carpentry." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jimrotz.ca/contact.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Jim Rotz Carpentry and Renovations",
+    "url": "https://jimrotz.ca",
+    "telephone": "(250) 858-8842",
+    "email": "info@jimrotz.ca",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Victoria",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    },
+    "areaServed": { "@type": "AdministrativeArea", "name": "Capital Regional District" },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "(250) 858-8842",
+      "contactType": "customer service"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-hero {
+      padding: 140px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 20% 60%, rgba(158,114,40,0.07) 0%, transparent 60%);
+    }
+    .page-hero .container { position: relative; padding-top: 0; padding-bottom: 0; }
+
+    .contact-section { border-top: 1px solid var(--rule); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-aside {
+      position: sticky;
+      top: calc(var(--nav-height) + 32px);
+    }
+    .contact-aside h2 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .contact-aside h2 em { font-style: italic; color: var(--warm); }
+    .contact-aside p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      background: #fff;
+      border: 1px solid var(--rule);
+    }
+    .contact-detail-item img {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .contact-detail-item a,
+    .contact-detail-item span {
+      font-size: 14px;
+      color: var(--cream-dim);
+      transition: color 0.2s;
+    }
+    .contact-detail-item a:hover { color: var(--warm); }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-group label .req {
+      color: var(--warm);
+      margin-left: 3px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 14px 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream);
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(30, 34, 50, 0.28);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--warm);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239e7228' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      padding: 40px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      text-align: center;
+    }
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .form-success p {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-aside { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+      .page-hero { padding: 120px 24px 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo"><img src="LOGO.svg" alt="Jim Rotz Carpentry and Renovations" /></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="services.html">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="kitchen-renovations.html">Kitchen Renovations</a></li>
+          <li><a href="bathroom-renovations.html">Bathroom Renovations</a></li>
+          <li><a href="basement-finishing.html">Basement Finishing</a></li>
+          <li><a href="home-renovations.html">Home Renovations</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="nav-cta active">Get a Quote</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <main class="page-content">
+
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="container">
+        <p class="section-eyebrow fade-up">Get in Touch</p>
+        <h1 class="section-title fade-up delay-1">Tell Jim what you're <em>working on.</em></h1>
+        <p class="section-lead fade-up delay-2">Fill out the form and Jim will get back to you directly. No sales team, no runaround.</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-aside fade-up">
+            <h2>Tell Jim what you're <em>working on.</em></h2>
+            <p>He'll review what you've sent and give you a straight answer on what's involved and whether it's a good fit.</p>
+            <div class="contact-detail">
+              <div class="contact-detail-item">
+                <img src="icons/location.svg" alt="" />
+                <span>Victoria, BC and the Capital Regional District</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-up delay-2">
+            <form
+              class="contact-form"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              id="contactForm"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p style="display:none;"><input name="bot-field" /></p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Your Name <span class="req">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="(250) 858-8842" />
+                </div>
+                <div class="form-group">
+                  <label for="service">Type of Project</label>
+                  <select id="service" name="service">
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="Kitchen Renovation">Kitchen Renovation</option>
+                    <option value="Bathroom Renovation">Bathroom Renovation</option>
+                    <option value="Basement Finishing">Basement Finishing</option>
+                    <option value="General Home Renovation">General Home Renovation</option>
+                    <option value="Custom Carpentry">Custom Carpentry</option>
+                    <option value="Decks & Outdoor">Decks &amp; Outdoor</option>
+                    <option value="Repairs & Maintenance">Repairs &amp; Maintenance</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Tell Jim about your project <span class="req">*</span></label>
+                <textarea id="message" name="message" placeholder="What are you looking to do? Where are you located? Any details that might be helpful." required></textarea>
+              </div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+                <p class="form-note">Jim will be in touch.</p>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <h3>Message sent.</h3>
+              <p>Jim will be in touch.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="LOGO.svg" alt="Jim Rotz Carpentry and Renovations" /></a>
+        <p>General contractor serving Victoria and the Capital Regional District for over 30 years.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="kitchen-renovations.html">Kitchen Renovations</a></li>
+          <li><a href="bathroom-renovations.html">Bathroom Renovations</a></li>
+          <li><a href="basement-finishing.html">Basement Finishing</a></li>
+          <li><a href="home-renovations.html">Home Renovations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+12508588842">(250) 858-8842</a></li>
+          <li><a href="mailto:info@jimrotz.ca">info@jimrotz.ca</a></li>
+          <li><a href="about.html">About Jim</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Jim Rotz Carpentry and Renovations. All rights reserved.</p>
+      <p>Victoria, BC · Capital Regional District</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => { el.style.animationPlayState = 'paused'; observer.observe(el); });
+
+    // Show success message if Netlify redirects back with ?success
+    if (window.location.search.includes('success')) {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

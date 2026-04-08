@@ -6,7 +6,12 @@
       "Bash(for f:*)",
       "Bash(do sed:*)",
       "Bash(done)",
-      "Bash(grep -h -o 'fill=\"\"\"\"[^\"\"\"\"]*\"\"\"\"' \"/Users/mirandascomputer/Desktop/JR Carpentry/icons/\"*.svg)"
+      "Bash(grep -h -o 'fill=\"\"\"\"[^\"\"\"\"]*\"\"\"\"' \"/Users/mirandascomputer/Desktop/JR Carpentry/icons/\"*.svg)",
+      "Bash(do echo:*)",
+      "Read(//Users/mirandascomputer/Desktop/JR Carpentry/**)",
+      "Bash(do)",
+      "Bash(echo \"=== $f ===\")",
+      "Bash(python3 -c \":*)"
     ]
   }
 }
