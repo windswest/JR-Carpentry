@@ -12,7 +12,8 @@
       "Bash(do)",
       "Bash(echo \"=== $f ===\")",
       "Bash(python3 -c \":*)",
-      "Bash(python3 -m http.server 3000)"
+      "Bash(python3 -m http.server 3000)",
+      "Bash(ls \"/Users/mirandascomputer/Desktop/JR Carpentry/\"*.png \"/Users/mirandascomputer/Desktop/JR Carpentry/\"*.jpg \"/Users/mirandascomputer/Desktop/JR Carpentry/\"*.svg \"/Users/mirandascomputer/Desktop/JR Carpentry/\"*.ico)"
     ]
   }
 }

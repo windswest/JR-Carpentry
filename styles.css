@@ -184,7 +184,7 @@ a  { color: inherit; text-decoration: none; }
 
 .nav-cta {
   margin-left: 36px;
-  padding: 9px 22px;
+  padding: 9px 22px 9px !important;
   background: var(--warm);
   color: var(--slate) !important;
   font-size: 12px !important;
