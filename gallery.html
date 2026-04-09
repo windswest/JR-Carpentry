@@ -304,52 +304,12 @@
         <div class="filter-bar fade-up">
           <button class="filter-btn active" data-filter="all">All Projects</button>
           <button class="filter-btn" data-filter="kitchen">Kitchens</button>
-          <button class="filter-btn" data-filter="carpentry">Custom Carpentry</button>
+          <button class="filter-btn" data-filter="bathroom">Bathrooms</button>
+          <button class="filter-btn" data-filter="basement">Basements</button>
+          <button class="filter-btn" data-filter="home">Custom Carpentry</button>
         </div>
 
-        <div class="gallery-grid" id="galleryGrid">
-
-          <div class="gallery-item fade-up" data-category="kitchen" data-title="Kitchen Renovation" data-location="Victoria, BC">
-            <img src="Photos/kitchen-white-jimrotz.jpeg" alt="White kitchen renovation with custom cabinetry by Jim Rotz, Victoria BC" loading="lazy" />
-            <div class="gallery-caption">
-              <span>Kitchen Renovation</span>
-              <em>Victoria, BC</em>
-            </div>
-          </div>
-
-          <div class="gallery-item fade-up delay-1" data-category="kitchen" data-title="Kitchen Renovation" data-location="Victoria, BC">
-            <img src="Photos/kitchen-jimrotz.jpeg" alt="Kitchen renovation with custom cabinetry and trim by Jim Rotz, Victoria BC" loading="lazy" />
-            <div class="gallery-caption">
-              <span>Kitchen Renovation</span>
-              <em>Victoria, BC</em>
-            </div>
-          </div>
-
-          <div class="gallery-item fade-up delay-2" data-category="carpentry" data-title="Custom Staircase" data-location="Victoria, BC">
-            <img src="Photos/staircase-jimrotz.jpeg" alt="Custom staircase built by Jim Rotz, Victoria BC" loading="lazy" />
-            <div class="gallery-caption">
-              <span>Custom Staircase</span>
-              <em>Victoria, BC</em>
-            </div>
-          </div>
-
-          <div class="gallery-item fade-up delay-1" data-category="carpentry" data-title="Staircase Carpentry" data-location="Victoria, BC">
-            <img src="Photos/Staircase%20JimRotz.jpg" alt="Staircase carpentry and finishing by Jim Rotz, Victoria BC" loading="lazy" />
-            <div class="gallery-caption">
-              <span>Staircase Carpentry</span>
-              <em>Victoria, BC</em>
-            </div>
-          </div>
-
-          <div class="gallery-item fade-up delay-2" data-category="carpentry" data-title="Fireplace Surround" data-location="Victoria, BC">
-            <img src="Photos/fireplacesurround-jimrotz.jpeg" alt="Custom fireplace surround built by Jim Rotz, Victoria BC" loading="lazy" />
-            <div class="gallery-caption">
-              <span>Fireplace Surround</span>
-              <em>Victoria, BC</em>
-            </div>
-          </div>
-
-        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
 
       </div>
     </section>
@@ -419,88 +379,111 @@
     toggle.addEventListener('click', () => links.classList.toggle('open'));
 
     // Scroll fade-in
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; observer.unobserve(e.target); } });
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; fadeObserver.unobserve(e.target); } });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up').forEach(el => { el.style.animationPlayState = 'paused'; observer.observe(el); });
-
-    // Filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('.gallery-item');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        items.forEach(item => {
-          const show = filter === 'all' || item.dataset.category === filter;
-          item.classList.toggle('hidden', !show);
-        });
-      });
-    });
+    document.querySelectorAll('.fade-up').forEach(el => { el.style.animationPlayState = 'paused'; fadeObserver.observe(el); });
 
     // Lightbox
-    const lightbox     = document.getElementById('lightbox');
-    const lightboxImg  = document.getElementById('lightboxImg');
+    const lightbox         = document.getElementById('lightbox');
+    const lightboxImg      = document.getElementById('lightboxImg');
     const lightboxTitle    = document.getElementById('lightboxTitle');
     const lightboxLocation = document.getElementById('lightboxLocation');
     const lightboxClose    = document.getElementById('lightboxClose');
     const lightboxPrev     = document.getElementById('lightboxPrev');
     const lightboxNext     = document.getElementById('lightboxNext');
-
     let currentIndex = 0;
     let visibleItems = [];
 
     function openLightbox(index) {
-      visibleItems = [...items].filter(i => !i.classList.contains('hidden'));
+      visibleItems = [...document.querySelectorAll('.gallery-item:not(.hidden)')];
       currentIndex = index;
       showSlide(currentIndex);
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
       lightbox.classList.remove('open');
       document.body.style.overflow = '';
     }
-
     function showSlide(index) {
       const item = visibleItems[index];
-      const img  = item.querySelector('img');
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
+      lightboxImg.src = item.querySelector('img').src;
+      lightboxImg.alt = item.querySelector('img').alt;
       lightboxTitle.textContent    = item.dataset.title;
       lightboxLocation.textContent = item.dataset.location;
     }
 
-    items.forEach((item, i) => {
-      item.addEventListener('click', () => {
-        visibleItems = [...items].filter(it => !it.classList.contains('hidden'));
-        const visibleIndex = visibleItems.indexOf(item);
-        openLightbox(visibleIndex);
-      });
-    });
-
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-
-    lightboxPrev.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
-      showSlide(currentIndex);
-    });
-
-    lightboxNext.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % visibleItems.length;
-      showSlide(currentIndex);
-    });
-
+    lightboxPrev.addEventListener('click', () => { currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length; showSlide(currentIndex); });
+    lightboxNext.addEventListener('click', () => { currentIndex = (currentIndex + 1) % visibleItems.length; showSlide(currentIndex); });
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('open')) return;
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft')  { currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length; showSlide(currentIndex); }
       if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % visibleItems.length; showSlide(currentIndex); }
     });
+
+    // Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    let activeFilter = 'all';
+
+    function applyFilter(filter) {
+      activeFilter = filter;
+      filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const show = filter === 'all' || item.dataset.category === filter;
+        item.classList.toggle('hidden', !show);
+      });
+    }
+
+    filterBtns.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+
+    // Build gallery from photos.json
+    // Category map: JSON key -> filter data-filter value and label
+    const categoryMap = {
+      kitchen:  { filter: 'kitchen',  label: 'Kitchen' },
+      bathroom: { filter: 'bathroom', label: 'Bathroom' },
+      basement: { filter: 'basement', label: 'Basement' },
+      home:     { filter: 'home',     label: 'Custom Carpentry' }
+    };
+
+    fetch('photos.json')
+      .then(r => r.json())
+      .then(data => {
+        const grid = document.getElementById('galleryGrid');
+        const delays = ['', 'delay-1', 'delay-2', 'delay-3', 'delay-4'];
+        let i = 0;
+
+        Object.entries(data).forEach(([category, photos]) => {
+          photos.forEach(p => {
+            const cat = categoryMap[category] || { filter: category, label: category };
+            const div = document.createElement('div');
+            div.className = `gallery-item fade-up ${delays[i % delays.length]}`;
+            div.dataset.category = cat.filter;
+            div.dataset.title    = p.title || cat.label;
+            div.dataset.location = p.location || 'Victoria, BC';
+            div.innerHTML = `
+              <img src="${p.src}" alt="${p.alt}" loading="lazy" />
+              <div class="gallery-caption">
+                <span>${p.title || cat.label}</span>
+                <em>${p.location || 'Victoria, BC'}</em>
+              </div>`;
+            div.addEventListener('click', () => {
+              visibleItems = [...document.querySelectorAll('.gallery-item:not(.hidden)')];
+              openLightbox(visibleItems.indexOf(div));
+            });
+            grid.appendChild(div);
+            fadeObserver.observe(div);
+            div.style.animationPlayState = 'paused';
+            i++;
+          });
+        });
+
+        // Re-apply active filter after build
+        applyFilter(activeFilter);
+      });
   </script>
 
 </body>

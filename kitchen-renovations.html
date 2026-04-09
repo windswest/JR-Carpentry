@@ -93,6 +93,8 @@
       padding-left: 24px;
     }
 
+    .photo-grid { display: grid; gap: 8px; }
+
     .inclusions {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -202,10 +204,7 @@
         <h1 class="section-title fade-up delay-1">Kitchen <em>Renovations</em></h1>
         <p class="section-lead fade-up delay-2">Kitchens are the most-used room in your house. Jim's done hundreds of them across Victoria. Cabinets, countertops, tile, flooring, layout changes. He takes the work seriously.</p>
         <div class="fade-up delay-3">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:40px;">
-            <img src="Photos/kitchen-white-jimrotz.jpeg" alt="White kitchen renovation by Jim Rotz, Victoria BC" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--rule);" />
-            <img src="Photos/kitchen-jimrotz.jpeg" alt="Kitchen renovation with custom cabinetry by Jim Rotz, Victoria BC" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--rule);" />
-          </div>
+          <div class="photo-grid" id="servicePhotos" style="margin-bottom:40px;"></div>
           <div class="inclusions">
             <div class="inclusion-item"><div class="inclusion-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div><span>Cabinet installation &amp; custom built-ins</span></div>
             <div class="inclusion-item"><div class="inclusion-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div><span>Countertop fitting &amp; trim work</span></div>
@@ -293,6 +292,22 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => { el.style.animationPlayState = 'paused'; observer.observe(el); });
+
+    fetch('photos.json')
+      .then(r => r.json())
+      .then(data => {
+        const photos = data['kitchen'] || [];
+        const grid = document.getElementById('servicePhotos');
+        if (!photos.length) { grid.style.display = 'none'; return; }
+        grid.style.gridTemplateColumns = photos.length === 1 ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))';
+        photos.forEach(p => {
+          const img = document.createElement('img');
+          img.src = p.src;
+          img.alt = p.alt;
+          img.style.cssText = 'width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--rule);';
+          grid.appendChild(img);
+        });
+      });
   </script>
 
 </body>

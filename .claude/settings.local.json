@@ -11,7 +11,8 @@
       "Read(//Users/mirandascomputer/Desktop/JR Carpentry/**)",
       "Bash(do)",
       "Bash(echo \"=== $f ===\")",
-      "Bash(python3 -c \":*)"
+      "Bash(python3 -c \":*)",
+      "Bash(python3 -m http.server 3000)"
     ]
   }
 }

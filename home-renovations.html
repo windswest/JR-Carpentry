@@ -57,6 +57,7 @@
 
     .lead { font-size: 18px; font-weight: 300; color: var(--cream-dim); line-height: 1.75; margin-bottom: 40px; border-left: 2px solid var(--warm); padding-left: 24px; }
 
+    .photo-grid { display: grid; gap: 8px; }
     .inclusions { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px; }
     .inclusion-item { background: #fff; border: 1px solid var(--rule); padding: 20px 18px; display: flex; align-items: flex-start; gap: 12px; transition: background 0.25s; }
     .inclusion-item:hover { background: var(--warm-dim); }
@@ -119,10 +120,7 @@
         <h1 class="section-title fade-up delay-1">General Home <em>Renovations</em></h1>
         <p class="section-lead fade-up delay-2">Not everything fits neatly into a category. Flooring, doors, decks, built-ins, repairs. If it's your home and it needs doing, Jim's probably done something similar a dozen times.</p>
         <div class="fade-up delay-3">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:40px;">
-            <img src="Photos/staircase-jimrotz.jpeg" alt="Custom staircase built by Jim Rotz, Victoria BC" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--rule);" />
-            <img src="Photos/fireplacesurround-jimrotz.jpeg" alt="Custom fireplace surround built by Jim Rotz, Victoria BC" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--rule);" />
-          </div>
+          <div class="photo-grid" id="servicePhotos" style="margin-bottom:40px;"></div>
           <div class="inclusions">
             <div class="inclusion-item"><div class="inclusion-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div><span>Flooring throughout</span></div>
             <div class="inclusion-item"><div class="inclusion-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div><span>Interior doors &amp; trim</span></div>
@@ -210,6 +208,22 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => { el.style.animationPlayState = 'paused'; observer.observe(el); });
+
+    fetch('photos.json')
+      .then(r => r.json())
+      .then(data => {
+        const photos = data['home'] || [];
+        const grid = document.getElementById('servicePhotos');
+        if (!photos.length) { grid.style.display = 'none'; return; }
+        grid.style.gridTemplateColumns = photos.length === 1 ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))';
+        photos.forEach(p => {
+          const img = document.createElement('img');
+          img.src = p.src;
+          img.alt = p.alt;
+          img.style.cssText = 'width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--rule);';
+          grid.appendChild(img);
+        });
+      });
   </script>
 
 </body>

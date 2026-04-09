@@ -83,6 +83,8 @@
       padding-left: 24px;
     }
 
+    .photo-grid { display: grid; gap: 8px; }
+
     .inclusions {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -172,6 +174,7 @@
         <h1 class="section-title fade-up delay-1">Bathroom <em>Renovations</em></h1>
         <p class="section-lead fade-up delay-2">Bathrooms are small but unforgiving. Bad tile, a vanity that doesn't sit right, trim that's slightly off. You notice it every day. Jim's done plenty of bathroom renos across Victoria and he gets the details right.</p>
         <div class="fade-up delay-3">
+          <div class="photo-grid" id="servicePhotos" style="margin-bottom:40px;"></div>
           <div class="inclusions">
             <div class="inclusion-item"><div class="inclusion-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div><span>Vanity &amp; cabinet installation</span></div>
             <div class="inclusion-item"><div class="inclusion-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div><span>Tile &amp; shower surround</span></div>
@@ -259,6 +262,22 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => { el.style.animationPlayState = 'paused'; observer.observe(el); });
+
+    fetch('photos.json')
+      .then(r => r.json())
+      .then(data => {
+        const photos = data['bathroom'] || [];
+        const grid = document.getElementById('servicePhotos');
+        if (!photos.length) { grid.style.display = 'none'; return; }
+        grid.style.gridTemplateColumns = photos.length === 1 ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))';
+        photos.forEach(p => {
+          const img = document.createElement('img');
+          img.src = p.src;
+          img.alt = p.alt;
+          img.style.cssText = 'width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--rule);';
+          grid.appendChild(img);
+        });
+      });
   </script>
 
 </body>
