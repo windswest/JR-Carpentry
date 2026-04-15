@@ -1,19 +1,19 @@
 {
   "kitchen": [
     {
-      "src": "Photos/kitchen-white-jimrotz.jpeg",
+      "src": "Photos/kitchen-renovation-white-cabinets-victoria-bc.jpeg",
       "alt": "White kitchen renovation with custom cabinetry by Jim Rotz, Victoria BC",
       "title": "Kitchen Renovation",
       "location": "Victoria, BC"
     },
     {
-      "src": "Photos/kitchen-jimrotz.jpeg",
+      "src": "Photos/kitchen-renovation-custom-cabinetry-victoria-bc.jpeg",
       "alt": "Kitchen renovation with custom cabinetry and countertops by Jim Rotz, Victoria BC",
       "title": "Kitchen Renovation",
       "location": "Victoria, BC"
     },
     {
-      "src": "Photos/white-kitchen.jpeg",
+      "src": "Photos/kitchen-renovation-cabinetry-victoria-bc.jpeg",
       "alt": "White kitchen renovation with custom cabinetry by Jim Rotz, Victoria BC",
       "title": "Kitchen Renovation",
       "location": "Victoria, BC"
@@ -21,37 +21,45 @@
   ],
   "bathroom": [
     {
-      "src": "Photos/bathroom.jpeg",
+      "src": "Photos/bathroom-renovation-victoria-bc.jpeg",
       "alt": "Bathroom renovation by Jim Rotz, Victoria BC",
       "title": "Bathroom Renovation",
       "location": "Victoria, BC"
     },
     {
-      "src": "Photos/bathroom-tub.jpeg",
+      "src": "Photos/bathroom-renovation-tub-surround-victoria-bc.jpeg",
       "alt": "Bathroom renovation with tub surround by Jim Rotz, Victoria BC",
       "title": "Bathroom Renovation",
       "location": "Victoria, BC"
     }
   ],
   "basement": [
-    {
-      "src": "Photos/Staircase JimRotz.jpg",
-      "alt": "Custom basement staircase with finish carpentry by Jim Rotz, Victoria BC",
-      "title": "Basement Staircase",
-      "location": "Victoria, BC"
-    }
   ],
-  "home": [
+  "home": [],
+  "maintenance": [],
+  "carpentry": [
     {
-      "src": "Photos/staircase-jimrotz.jpeg",
+      "src": "Photos/custom-staircase-carpentry-victoria-bc.jpeg",
       "alt": "Custom staircase built by Jim Rotz, Victoria BC",
       "title": "Custom Staircase",
       "location": "Victoria, BC"
     },
     {
-      "src": "Photos/fireplacesurround-jimrotz.jpeg",
+      "src": "Photos/custom-fireplace-surround-victoria-bc.jpeg",
       "alt": "Custom fireplace surround built by Jim Rotz, Victoria BC",
       "title": "Fireplace Surround",
+      "location": "Victoria, BC"
+    },
+    {
+      "src": "Photos/custom-fireplace-bookcase-surround-victoria-bc.jpeg",
+      "alt": "Custom fireplace surround with built-in bookcase by Jim Rotz, Victoria BC",
+      "title": "Fireplace & Bookcase Surround",
+      "location": "Victoria, BC"
+    },
+        {
+      "src": "Photos/custom-wooden-staircase-victoria-bc.jpg",
+      "alt": "Custom staircase with finish carpentry by Jim Rotz, Victoria BC",
+      "title": "Custom Staircase",
       "location": "Victoria, BC"
     }
   ]

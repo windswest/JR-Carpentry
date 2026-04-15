@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Gallery - Jim Rotz Carpentry Victoria BC</title>
+  <title>Project Gallery | Victoria Carpentry &amp; Custom Renovations | Jim Rotz</title>
   <meta name="description" content="Photos of completed renovation and carpentry projects by Jim Rotz across Victoria and the Capital Regional District - kitchens, staircases, fireplace surrounds, and more." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://jimrotz.ca/gallery.html" />
@@ -12,12 +12,12 @@
   <meta property="og:url" content="https://jimrotz.ca/gallery.html" />
   <meta property="og:title" content="Project Gallery - Jim Rotz Carpentry, Victoria BC" />
   <meta property="og:description" content="Completed renovation and carpentry projects across Victoria and the CRD." />
-  <meta property="og:image" content="https://jimrotz.ca/Photos/kitchen-white-jimrotz.jpeg" />
+  <meta property="og:image" content="https://jimrotz.ca/Photos/kitchen-renovation-white-cabinets-victoria-bc.jpeg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Project Gallery - Jim Rotz Carpentry, Victoria BC" />
   <meta name="twitter:description" content="Completed renovation and carpentry projects across Victoria and the CRD." />
-  <meta name="twitter:image" content="https://jimrotz.ca/Photos/kitchen-white-jimrotz.jpeg" />
+  <meta name="twitter:image" content="https://jimrotz.ca/Photos/kitchen-renovation-white-cabinets-victoria-bc.jpeg" />
 
   <script type="application/ld+json">
   {
@@ -277,6 +277,8 @@
           <li><a href="bathroom-renovations.html">Bathroom Renovations</a></li>
           <li><a href="basement-finishing.html">Basement Finishing</a></li>
           <li><a href="home-renovations.html">Home Renovations</a></li>
+          <li><a href="custom-carpentry.html">Custom Carpentry</a></li>
+          <li><a href="home-maintenance.html">Maintenance &amp; Repairs</a></li>
         </ul>
       </li>
       <li><a href="about.html">About</a></li>
@@ -307,7 +309,8 @@
           <button class="filter-btn" data-filter="kitchen">Kitchens</button>
           <button class="filter-btn" data-filter="bathroom">Bathrooms</button>
           <button class="filter-btn" data-filter="basement">Basements</button>
-          <button class="filter-btn" data-filter="home">Custom Carpentry</button>
+          <button class="filter-btn" data-filter="home">Home Renovations</button>
+          <button class="filter-btn" data-filter="carpentry">Custom Carpentry</button>
         </div>
 
         <div class="gallery-grid" id="galleryGrid"></div>
@@ -356,6 +359,8 @@
           <li><a href="bathroom-renovations.html">Bathroom Renovations</a></li>
           <li><a href="basement-finishing.html">Basement Finishing</a></li>
           <li><a href="home-renovations.html">Home Renovations</a></li>
+          <li><a href="custom-carpentry.html">Custom Carpentry</a></li>
+          <li><a href="home-maintenance.html">Maintenance &amp; Repairs</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -369,7 +374,7 @@
 
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Jim Rotz Carpentry and Renovations. All rights reserved.</p>
+      <p>&copy; 2026 Jim Rotz Carpentry and Renovations. All rights reserved.</p>
       <p>Victoria, BC · Capital Regional District</p>
       <p style="display:flex; align-items:center; gap:8px; font-size:12px; color:rgba(245,240,232,0.5);">Credit card payments accepted <img src="icons/creditcard.svg" alt="" style="height:12px; width:auto; filter: brightness(0) invert(1); opacity:0.5;" /></p>
     </div>
@@ -449,7 +454,8 @@
       kitchen:  { filter: 'kitchen',  label: 'Kitchen' },
       bathroom: { filter: 'bathroom', label: 'Bathroom' },
       basement: { filter: 'basement', label: 'Basement' },
-      home:     { filter: 'home',     label: 'Custom Carpentry' }
+      home:      { filter: 'home',      label: 'Home Renovations' },
+      carpentry: { filter: 'carpentry', label: 'Custom Carpentry' }
     };
 
     fetch('photos.json')
